@@ -52,21 +52,22 @@ class Exercise1Fragment : BaseFragment() {
         btnGetReputation.setOnClickListener {
             logThreadInfo("button callback")
             btnGetReputation.isEnabled = false
-            CoroutineScope(Dispatchers.Main).launch {
+//            CoroutineScope(Dispatchers.Main).launch {
                 val reputation =  getReputationForUser(edtUserId.text.toString())
                 btnGetReputation.isEnabled = true
                 Toast.makeText(requireContext(), "reputation: $reputation", Toast.LENGTH_SHORT).show()
-            }
+//            }
         }
 
         return view
     }
 
-    private suspend fun getReputationForUser(userId: String) : Int{
+    private  fun getReputationForUser(userId: String)
+    {
         logThreadInfo("getReputationForUser()")
-        return withContext(Dispatchers.Default) {
+//        return withContext(Dispatchers.Default) {
             val reputation = getReputationEndpoint.getReputation(userId)
-            reputation
+//            reputation
         }
 
 
