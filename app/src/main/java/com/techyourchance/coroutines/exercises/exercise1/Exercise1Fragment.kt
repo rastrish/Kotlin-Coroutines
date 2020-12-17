@@ -71,8 +71,6 @@ class Exercise1Fragment : BaseFragment() {
         }
 
 
-    }
-
     private fun logThreadInfo(message: String) {
         ThreadInfoLogger.logThreadInfo(message)
     }
